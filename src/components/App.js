@@ -11,8 +11,8 @@ class App extends Component {
       <Router>
         <AppShell>
           <div>
-            <Route exact path='/' component={Main} />
-            <Route exact path='/settings' component={Settings} />
+            <Route exact path='/' render={props => <Main {...props} />} />
+            <Route exact path='/settings' render={props => <Settings {...props} />} />
           </div>
         </AppShell>
       </Router>

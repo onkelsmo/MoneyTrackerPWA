@@ -34,3 +34,7 @@
 .BackButton {
   color: #ffffff !important;
 }
+
+h1 {
+  margin: 24px;
+}

@@ -3,6 +3,7 @@ import IconButton from 'material-ui/IconButton'
 import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
+import { Link } from 'react-router-dom'
 
 class Menu extends React.Component {
   render () {
@@ -19,7 +20,10 @@ class Menu extends React.Component {
         targetOrigin={{horizontal: 'right', vertical: 'top'}}
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
       >
-        <MenuItem primaryText='Setting' />
+        <MenuItem
+          primaryText='Setting'
+          containerElement={<Link to='/settings' />}
+        />
         <MenuItem primaryText='Reset' />
       </IconMenu>
     )

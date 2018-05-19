@@ -1,3 +1,4 @@
+/* global localStorage */
 import React, { Component } from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
 import AppShell from './AppShell'
@@ -6,8 +7,9 @@ import Settings from './Settings'
 import '../App.css'
 
 class App extends Component {
-  componentDidMount () {
-    this.setState({current: 0})
+  componentWillMount () {
+    const storedValue = localStorage.getItem('storedValue')
+    this.setState({current: storedValue})
   }
 
   render () {

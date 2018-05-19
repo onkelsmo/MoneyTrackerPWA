@@ -1,15 +1,18 @@
+/* global localStorage */
 import React from 'react'
 
 class Main extends React.Component {
   handleRaiseClick () {
-    let newCurrentValue = this.props.current.current++
+    let newCurrentValue = ++this.props.current.current
+    localStorage.setItem('storedValue', newCurrentValue)
     this.setState({current: newCurrentValue})
   }
 
   render () {
-    let current = ''
-    if (this.props.current !== null) {
-      current = this.props.current.current
+    let { current } = this.props.current
+
+    if (current === null) {
+      current = 0
     }
 
     return (
@@ -17,8 +20,10 @@ class Main extends React.Component {
         <h1>MAIN</h1>
         <p>
           {current}
-          &nbsp;
-          <button type='button' onClick={this.handleRaiseClick.bind(this)}>Raise</button>
+          <br />
+          <button type='button' onClick={this.handleRaiseClick.bind(this)}>
+            Raise
+          </button>
         </p>
       </div>
     )

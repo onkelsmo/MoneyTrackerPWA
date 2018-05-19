@@ -10,21 +10,13 @@ class Menu extends React.Component {
     return (
       <IconMenu
         {...this.props}
-        iconButtonElement={
-          <IconButton>
-            <MoreVertIcon
-              className='MenuIcon'
-            />
-          </IconButton>
-        }
+        iconButtonElement={<IconButton>
+                             <MoreVertIcon className='MenuIcon' />
+                           </IconButton>}
         targetOrigin={{horizontal: 'right', vertical: 'top'}}
-        anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-      >
-        <MenuItem
-          primaryText='Setting'
-          containerElement={<Link to='/settings' />}
-        />
-        <MenuItem primaryText='Reset' />
+        anchorOrigin={{horizontal: 'right', vertical: 'top'}}>
+        <MenuItem primaryText='Setting' containerElement={<Link to='/settings' />} />
+        <MenuItem primaryText='Reset' containerElement={<Link to='/reset' />} />
       </IconMenu>
     )
   }

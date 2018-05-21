@@ -9,7 +9,6 @@ import FlatButton from 'material-ui/FlatButton'
 class AppShell extends React.Component {
   render () {
     const { handleResetClose, handleResetOk } = this.props.data
-
     const actions = [
       <FlatButton label='Cancel' primary onClick={handleResetClose} />,
       <FlatButton label='OK' primary onClick={handleResetOk} />

@@ -54,3 +54,8 @@ p {
   bottom: 50px;
   right: 50px;
 }
+
+.money_input {
+  margin-left: 10px;
+  margin-right: 10px;
+}

@@ -48,3 +48,9 @@ h1 {
 p {
   margin: 24px;
 }
+
+.floating_action_button {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}

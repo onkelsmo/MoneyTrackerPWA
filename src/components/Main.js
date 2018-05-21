@@ -1,9 +1,8 @@
-/* global localStorage */
 import React from 'react'
 
 class Main extends React.Component {
   handleRaiseClick () {
-    let newCurrentValue = ++this.props.current.current
+    let newCurrentValue = ++this.props.data.current
     localStorage.setItem('storedValue', newCurrentValue)
     this.setState({ current: newCurrentValue })
   }

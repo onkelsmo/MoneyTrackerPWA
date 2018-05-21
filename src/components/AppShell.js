@@ -7,30 +7,14 @@ import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 
 class AppShell extends React.Component {
-  state = {
-    open: false,
-    handleResetClick: () => {
-      this.setState({
-        open: true
-      })
-    },
-    handleClose: () => {
-      this.setState({
-        open: false
-      })
-    },
-    handleOk: () => {
-      localStorage.setItem('storedValue', 0)
-      this.setState({
-        open: true
-      })
-    }
-  }
-
   render () {
     const actions = [
-      <FlatButton label='Cancel' primary onClick={this.state.handleClose} />,
-      <FlatButton label='OK' primary onClick={this.state.handleClose} />
+      <FlatButton
+        label='Cancel'
+        primary
+        onClick={this.props.data.handleClose}
+      />,
+      <FlatButton label='OK' primary onClick={this.props.data.handleOk} />
     ]
 
     return (
@@ -39,12 +23,17 @@ class AppShell extends React.Component {
           <AppBar
             title='Money Tracker'
             iconElementLeft={<Back />}
-            iconElementRight={<Menu data={this.state} />}
+            iconElementRight={<Menu data={this.props.data} />}
           />
           <div id='content'>
             {React.cloneElement(this.props.children)}
           </div>
-          <Dialog title='Reset' actions={actions} modal open={this.state.open}>
+          <Dialog
+            title='Reset'
+            actions={actions}
+            modal
+            open={this.props.data.open}
+          >
             Reset the counter?
           </Dialog>
         </div>

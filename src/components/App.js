@@ -1,15 +1,31 @@
-/* global localStorage */
 import React, { Component } from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
 import AppShell from './AppShell'
 import Main from './Main'
 import Settings from './Settings'
-import Reset from './Reset'
 import '../App.css'
 
 class App extends Component {
   state = {
-    current: 0
+    current: 0,
+    open: false,
+    handleResetClick: () => {
+      this.setState({
+        open: true
+      })
+    },
+    handleClose: () => {
+      this.setState({
+        open: false
+      })
+    },
+    handleOk: () => {
+      localStorage.setItem('storedValue', 0)
+      this.setState({
+        open: false,
+        current: 0
+      })
+    }
   }
 
   componentWillMount () {
@@ -20,7 +36,7 @@ class App extends Component {
   render () {
     return (
       <Router>
-        <AppShell>
+        <AppShell data={this.state}>
           <div>
             <Route
               exact
@@ -32,7 +48,6 @@ class App extends Component {
               path='/settings'
               render={props => <Settings {...props} data={this.state} />}
             />
-            <Route exact path='/reset' render={props => <Reset {...props} />} />
           </div>
         </AppShell>
       </Router>

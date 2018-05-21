@@ -10,7 +10,7 @@ import '../App.css'
 class App extends Component {
   componentWillMount () {
     const storedValue = localStorage.getItem('storedValue')
-    this.setState({current: storedValue})
+    this.setState({ current: storedValue })
   }
 
   render () {
@@ -18,8 +18,16 @@ class App extends Component {
       <Router>
         <AppShell>
           <div>
-            <Route exact path='/' render={props => <Main {...props} current={this.state} />} />
-            <Route exact path='/settings' render={props => <Settings {...props} />} />
+            <Route
+              exact
+              path='/'
+              render={props => <Main {...props} current={this.state} />}
+            />
+            <Route
+              exact
+              path='/settings'
+              render={props => <Settings {...props} />}
+            />
             <Route exact path='/reset' render={props => <Reset {...props} />} />
           </div>
         </AppShell>

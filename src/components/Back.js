@@ -6,12 +6,8 @@ import { Link } from 'react-router-dom'
 class Back extends React.Component {
   render () {
     return (
-      <IconButton
-        containerElement={<Link to='/' />}
-      >
-        <BackButton
-          className='BackButton'
-        />
+      <IconButton containerElement={<Link to='/' />}>
+        <BackButton className='BackButton' />
       </IconButton>
     )
   }

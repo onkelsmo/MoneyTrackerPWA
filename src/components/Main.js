@@ -5,7 +5,7 @@ class Main extends React.Component {
   handleRaiseClick () {
     let newCurrentValue = ++this.props.current.current
     localStorage.setItem('storedValue', newCurrentValue)
-    this.setState({current: newCurrentValue})
+    this.setState({ current: newCurrentValue })
   }
 
   render () {

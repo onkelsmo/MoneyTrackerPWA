@@ -1,6 +1,6 @@
 import React from 'react'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
-import ContentAdd from 'material-ui/svg-icons/content/add'
+import FabIcon from '@material-ui/icons/AttachMoney'
 
 class Main extends React.Component {
   handleRaiseClick () {
@@ -22,7 +22,7 @@ class Main extends React.Component {
           className='floating_action_button'
           onClick={this.handleRaiseClick.bind(this)}
         >
-          <ContentAdd />
+          <FabIcon />
         </FloatingActionButton>
       </div>
     )

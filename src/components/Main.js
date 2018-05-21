@@ -9,11 +9,7 @@ class Main extends React.Component {
   }
 
   render () {
-    let { current } = this.props.current
-
-    if (current === null) {
-      current = 0
-    }
+    let { current } = this.props.data
 
     return (
       <div>

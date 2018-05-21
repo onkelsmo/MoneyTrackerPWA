@@ -8,6 +8,10 @@ import Reset from './Reset'
 import '../App.css'
 
 class App extends Component {
+  state = {
+    current: 0
+  }
+
   componentWillMount () {
     const storedValue = localStorage.getItem('storedValue')
     this.setState({ current: storedValue })
@@ -21,12 +25,12 @@ class App extends Component {
             <Route
               exact
               path='/'
-              render={props => <Main {...props} current={this.state} />}
+              render={props => <Main {...props} data={this.state} />}
             />
             <Route
               exact
               path='/settings'
-              render={props => <Settings {...props} />}
+              render={props => <Settings {...props} data={this.state} />}
             />
             <Route exact path='/reset' render={props => <Reset {...props} />} />
           </div>

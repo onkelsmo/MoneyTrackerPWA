@@ -8,21 +8,21 @@ import '../App.css'
 class App extends Component {
   state = {
     current: 0,
-    open: false,
-    handleResetClick: () => {
+    openReset: false,
+    handleResetOpen: () => {
       this.setState({
-        open: true
+        openReset: true
       })
     },
-    handleClose: () => {
+    handleResetClose: () => {
       this.setState({
-        open: false
+        openReset: false
       })
     },
-    handleOk: () => {
+    handleResetOk: () => {
       localStorage.setItem('storedValue', 0)
       this.setState({
-        open: false,
+        openReset: false,
         current: 0
       })
     }
@@ -30,7 +30,9 @@ class App extends Component {
 
   componentWillMount () {
     const storedValue = localStorage.getItem('storedValue')
-    this.setState({ current: storedValue })
+    if (storedValue !== null) {
+      this.setState({ current: storedValue })
+    }
   }
 
   render () {

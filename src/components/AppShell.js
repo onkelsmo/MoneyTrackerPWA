@@ -8,13 +8,11 @@ import FlatButton from 'material-ui/FlatButton'
 
 class AppShell extends React.Component {
   render () {
+    const { handleResetClose, handleResetOk } = this.props.data
+
     const actions = [
-      <FlatButton
-        label='Cancel'
-        primary
-        onClick={this.props.data.handleClose}
-      />,
-      <FlatButton label='OK' primary onClick={this.props.data.handleOk} />
+      <FlatButton label='Cancel' primary onClick={handleResetClose} />,
+      <FlatButton label='OK' primary onClick={handleResetOk} />
     ]
 
     return (
@@ -32,7 +30,7 @@ class AppShell extends React.Component {
             title='Reset'
             actions={actions}
             modal
-            open={this.props.data.open}
+            open={this.props.data.openReset}
           >
             Reset the counter?
           </Dialog>

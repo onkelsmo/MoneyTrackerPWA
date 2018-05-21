@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 class Menu extends React.Component {
   render () {
-    let { handleResetClick } = this.props.data
+    let { handleResetOpen } = this.props.data
 
     return (
       <IconMenu
@@ -24,7 +24,7 @@ class Menu extends React.Component {
           primaryText='Setting'
           containerElement={<Link to='/settings' />}
         />
-        <MenuItem primaryText='Reset' onClick={handleResetClick} />
+        <MenuItem primaryText='Reset' onClick={handleResetOpen} />
       </IconMenu>
     )
   }

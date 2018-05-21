@@ -9,7 +9,6 @@ class Main extends React.Component {
 
   render () {
     let { current } = this.props.data
-
     return (
       <div>
         <h1>MAIN</h1>

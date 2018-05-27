@@ -44,13 +44,27 @@ class Main extends React.Component {
       <FlatButton label='OK' primary onClick={this.handleRaiseClick} />
     ]
 
-    let { current } = this.props.data
+    let { current, limit, rest } = this.props.data
     return (
-      <div>
-        <h1>MAIN</h1>
-        <p>
-          {current}
-        </p>
+      <div className='content'>
+        <table>
+          <tr className='current'>
+            <td>Current:</td>
+            <td className='value'>{current}</td>
+          </tr>
+          <tr className='limit'>
+            <td>Limit:</td>
+            <td className='value'>{limit}</td>
+          </tr>
+          <tr className='rest'>
+            <td>Rest:</td>
+            <td className='value'>{rest}</td>
+          </tr>
+        </table>
+
+        {/* <p className='current'>Current: <span>{current}</span> </p>
+        <p className='limit'>Limit: <span>{limit}</span></p>
+        <p className='rest'>Rest: <span>{rest}</span></p> */}
         <FloatingActionButton
           className='floating_action_button'
           onClick={this.handleOpen}

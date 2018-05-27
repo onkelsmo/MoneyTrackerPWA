@@ -8,6 +8,8 @@ import '../App.css'
 class App extends Component {
   state = {
     current: 0,
+    limit: 0,
+    rest: 0,
     openReset: false,
     handleResetOpen: () => {
       this.setState({

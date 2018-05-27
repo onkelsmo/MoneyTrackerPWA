@@ -1,4 +1,5 @@
 import React from 'react'
+import { DESC, LIMIT } from '../constants'
 import Switch from '@material-ui/core/Switch'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
@@ -29,14 +30,14 @@ class Settings extends React.Component {
     } else {
       this.props.data.desc = true
     }
-    localStorage.setItem('desc', this.props.data.desc)
+    localStorage.setItem(DESC, this.props.data.desc)
     this.setState({ desc: this.props.data.desc })
   }
 
   handleSetLimitClick = () => {
     const newLimit = this.state.limit
 
-    localStorage.setItem('limit', newLimit)
+    localStorage.setItem(LIMIT, newLimit)
     this.setState({ open: false })
     this.props.data.limit = newLimit
 

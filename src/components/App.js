@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
+import { CURRENT_VALUE, DESC, LIMIT } from '../constants'
 import AppShell from './AppShell'
 import Main from './Main'
 import Settings from './Settings'
@@ -23,7 +24,7 @@ class App extends Component {
       })
     },
     handleResetOk: () => {
-      localStorage.setItem('currentValue', this.state.limit)
+      localStorage.setItem(CURRENT_VALUE, this.state.limit)
       this.setState({
         openReset: false,
         current: this.state.limit
@@ -32,25 +33,25 @@ class App extends Component {
   }
 
   componentWillMount () {
-    const currentValue = localStorage.getItem('currentValue')
+    const currentValue = localStorage.getItem(CURRENT_VALUE)
     if (currentValue !== null) {
       this.setState({ current: currentValue })
     } else {
-      localStorage.setItem('currentValue', this.state.current)
+      localStorage.setItem(CURRENT_VALUE, this.state.current)
     }
 
-    const descValue = localStorage.getItem('desc')
+    const descValue = localStorage.getItem(DESC)
     if (descValue !== null) {
       this.setState({ desc: descValue })
     } else {
-      localStorage.setItem('desc', this.state.desc)
+      localStorage.setItem(DESC, this.state.desc)
     }
 
-    const limitValue = localStorage.getItem('limit')
+    const limitValue = localStorage.getItem(LIMIT)
     if (limitValue !== null) {
       this.setState({ limit: limitValue })
     } else {
-      localStorage.setItem('limit', this.state.limit)
+      localStorage.setItem(LIMIT, this.state.limit)
     }
   }
 

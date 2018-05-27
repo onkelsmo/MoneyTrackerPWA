@@ -1,4 +1,5 @@
 import React from 'react'
+import { CURRENT_VALUE } from '../constants'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import FabIcon from '@material-ui/icons/AttachMoney'
 import Dialog from 'material-ui/Dialog'
@@ -32,14 +33,14 @@ class Main extends React.Component {
   }
 
   handleRaiseClick = () => {
-    let newCurrentValue = this.calculate(
+    let newCURRENT_VALUE = this.calculate(
       this.props.data.current,
       this.state.money
     )
 
-    localStorage.setItem('currentValue', newCurrentValue)
+    localStorage.setItem(CURRENT_VALUE, newCURRENT_VALUE)
     this.setState({ open: false })
-    this.props.data.current = newCurrentValue
+    this.props.data.current = newCURRENT_VALUE
   }
 
   handleChange = event => {

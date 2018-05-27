@@ -40,7 +40,6 @@ class Main extends React.Component {
     localStorage.setItem('currentValue', newCurrentValue)
     this.setState({ open: false })
     this.props.data.current = newCurrentValue
-    // this.props.data.rest = this.props.data.limit - this.props.data.current
   }
 
   handleChange = event => {
@@ -54,7 +53,7 @@ class Main extends React.Component {
       <FlatButton label='OK' primary onClick={this.handleRaiseClick} />
     ]
 
-    let { current, limit, rest } = this.props.data
+    let { current, limit } = this.props.data
     return (
       <div className='content'>
         <table>
@@ -67,10 +66,6 @@ class Main extends React.Component {
               <td>Limit:</td>
               <td className='value'>{limit}</td>
             </tr>
-            {/* <tr className='rest'>
-              <td>Rest:</td>
-              <td className='value'>{rest}</td>
-            </tr> */}
           </tbody>
         </table>
         <FloatingActionButton

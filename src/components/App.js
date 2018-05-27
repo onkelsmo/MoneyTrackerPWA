@@ -45,6 +45,13 @@ class App extends Component {
     } else {
       localStorage.setItem('desc', this.state.desc)
     }
+
+    const limitValue = localStorage.getItem('limit')
+    if (limitValue !== null) {
+      this.setState({ limit: limitValue })
+    } else {
+      localStorage.setItem('limit', this.state.limit)
+    }
   }
 
   render () {

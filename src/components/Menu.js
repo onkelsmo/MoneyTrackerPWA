@@ -21,7 +21,7 @@ class Menu extends React.Component {
         anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
       >
         <MenuItem
-          primaryText='Setting'
+          primaryText='Settings'
           containerElement={<Link to='/settings' />}
         />
         <MenuItem primaryText='Reset' onClick={handleResetOpen} />

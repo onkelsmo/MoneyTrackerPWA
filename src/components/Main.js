@@ -6,7 +6,6 @@ import FlatButton from 'material-ui/FlatButton'
 import TextField from '@material-ui/core/TextField'
 
 class Main extends React.Component {
-  // TODO: Move state to some sort of stateProvider
   state = {
     open: false,
     money: 0
@@ -24,13 +23,24 @@ class Main extends React.Component {
     })
   }
 
+  calculate = (value1, value2) => {
+    if (this.props.data.desc) {
+      return parseInt(value1, 10) - parseInt(value2, 10)
+    } else {
+      return parseInt(value1, 10) + parseInt(value2, 10)
+    }
+  }
+
   handleRaiseClick = () => {
-    let newCurrentValue =
-      parseInt(this.props.data.current, 10) + parseInt(this.state.money, 10)
+    let newCurrentValue = this.calculate(
+      this.props.data.current,
+      this.state.money
+    )
 
     localStorage.setItem('currentValue', newCurrentValue)
     this.setState({ open: false })
     this.props.data.current = newCurrentValue
+    // this.props.data.rest = this.props.data.limit - this.props.data.current
   }
 
   handleChange = event => {
@@ -48,23 +58,21 @@ class Main extends React.Component {
     return (
       <div className='content'>
         <table>
-          <tr className='current'>
-            <td>Current:</td>
-            <td className='value'>{current}</td>
-          </tr>
-          <tr className='limit'>
-            <td>Limit:</td>
-            <td className='value'>{limit}</td>
-          </tr>
-          <tr className='rest'>
-            <td>Rest:</td>
-            <td className='value'>{rest}</td>
-          </tr>
+          <tbody>
+            <tr className='current'>
+              <td>Current:</td>
+              <td className='value'>{current}</td>
+            </tr>
+            <tr className='limit'>
+              <td>Limit:</td>
+              <td className='value'>{limit}</td>
+            </tr>
+            {/* <tr className='rest'>
+              <td>Rest:</td>
+              <td className='value'>{rest}</td>
+            </tr> */}
+          </tbody>
         </table>
-
-        {/* <p className='current'>Current: <span>{current}</span> </p>
-        <p className='limit'>Limit: <span>{limit}</span></p>
-        <p className='rest'>Rest: <span>{rest}</span></p> */}
         <FloatingActionButton
           className='floating_action_button'
           onClick={this.handleOpen}

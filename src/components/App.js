@@ -7,9 +7,10 @@ import '../App.css'
 
 class App extends Component {
   state = {
-    current: 0,
-    limit: 0,
+    current: 1000,
+    limit: 1000,
     rest: 0,
+    desc: true,
     openReset: false,
     handleResetOpen: () => {
       this.setState({
@@ -22,10 +23,10 @@ class App extends Component {
       })
     },
     handleResetOk: () => {
-      localStorage.setItem('currentValue', 0)
+      localStorage.setItem('currentValue', this.state.limit)
       this.setState({
         openReset: false,
-        current: 0
+        current: this.state.limit
       })
     }
   }
@@ -34,6 +35,15 @@ class App extends Component {
     const currentValue = localStorage.getItem('currentValue')
     if (currentValue !== null) {
       this.setState({ current: currentValue })
+    } else {
+      localStorage.setItem('currentValue', this.state.current)
+    }
+
+    const descValue = localStorage.getItem('desc')
+    if (descValue !== null) {
+      this.setState({ desc: descValue })
+    } else {
+      localStorage.setItem('desc', this.state.desc)
     }
   }
 

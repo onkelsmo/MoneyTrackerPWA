@@ -20,7 +20,7 @@ class App extends Component {
       })
     },
     handleResetOk: () => {
-      localStorage.setItem('storedValue', 0)
+      localStorage.setItem('currentValue', 0)
       this.setState({
         openReset: false,
         current: 0
@@ -29,9 +29,9 @@ class App extends Component {
   }
 
   componentWillMount () {
-    const storedValue = localStorage.getItem('storedValue')
-    if (storedValue !== null) {
-      this.setState({ current: storedValue })
+    const currentValue = localStorage.getItem('currentValue')
+    if (currentValue !== null) {
+      this.setState({ current: currentValue })
     }
   }
 

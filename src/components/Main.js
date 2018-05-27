@@ -1,6 +1,6 @@
 import React from 'react'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
-/* import FabIcon from '@material-ui/icons/AttachMoney' */
+import FabIcon from '@material-ui/icons/AttachMoney'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import TextField from '@material-ui/core/TextField'
@@ -25,12 +25,12 @@ class Main extends React.Component {
   }
 
   handleRaiseClick = () => {
-    // TODO: set the new value!
-    let newCurrentValue = ++this.props.data.current
-    console.log(this.props.data.current + this.state.money)
+    let newCurrentValue =
+      parseInt(this.props.data.current, 10) + parseInt(this.state.money, 10)
 
-    localStorage.setItem('storedValue', newCurrentValue)
-    this.setState({ current: newCurrentValue, open: false })
+    localStorage.setItem('currentValue', newCurrentValue)
+    this.setState({ open: false })
+    this.props.data.current = newCurrentValue
   }
 
   handleChange = event => {
@@ -55,7 +55,7 @@ class Main extends React.Component {
           className='floating_action_button'
           onClick={this.handleOpen}
         >
-          {/* <FabIcon /> */}
+          <FabIcon />
         </FloatingActionButton>
         <Dialog
           title='Spend money'
@@ -67,7 +67,6 @@ class Main extends React.Component {
           <TextField
             id='number'
             label='Number'
-            value={this.state.money}
             onChange={this.handleChange}
             type='number'
             className='money_input'

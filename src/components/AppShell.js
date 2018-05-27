@@ -17,8 +17,9 @@ class AppShell extends React.Component {
     return (
       <MuiThemeProvider>
         <div>
+          {/* TODO: Change AppBar Title on SettingsPage  */}
           <AppBar
-            title='Money Tracker'
+            title={this.props.data.title}
             iconElementLeft={<Back />}
             iconElementRight={<Menu data={this.props.data} />}
           />

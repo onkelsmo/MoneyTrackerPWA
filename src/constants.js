@@ -1,3 +1,5 @@
 export const CURRENT_VALUE = 'currentValue'
 export const DESC = 'desc'
 export const LIMIT = 'limit'
+export const MAIN_TITLE = 'Money Tracker'
+export const SETTINGS_TITLE = 'Settings'

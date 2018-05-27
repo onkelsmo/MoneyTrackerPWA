@@ -25,13 +25,15 @@ class Settings extends React.Component {
   }
 
   handleSwitchChange = () => {
-    if (this.props.data.desc) {
-      this.props.data.desc = false
+    let { desc } = this.props.data
+
+    if (desc) {
+      desc = false
     } else {
-      this.props.data.desc = true
+      desc = true
     }
-    localStorage.setItem(DESC, this.props.data.desc)
-    this.setState({ desc: this.props.data.desc })
+    localStorage.setItem(DESC, desc)
+    this.setState({ desc: desc })
   }
 
   handleSetLimitClick = () => {
@@ -53,14 +55,13 @@ class Settings extends React.Component {
   }
 
   render () {
-    let { limit } = this.props.data
+    let { limit, desc } = this.props.data
     const actions = [
       <FlatButton label='OK' primary onClick={this.handleSetLimitClick} />
     ]
 
     return (
       <div className='content'>
-        <h1>SETTINGS</h1>
         <table>
           <tbody>
             <tr>
@@ -70,10 +71,7 @@ class Settings extends React.Component {
             <tr>
               <td>Asc / Desc</td>
               <td className='value'>
-                <Switch
-                  checked={this.props.data.desc}
-                  onChange={this.handleSwitchChange}
-                />
+                <Switch checked={desc} onChange={this.handleSwitchChange} />
               </td>
             </tr>
           </tbody>

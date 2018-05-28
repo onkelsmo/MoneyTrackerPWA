@@ -24,16 +24,12 @@ class Settings extends React.Component {
     })
   }
 
-  handleSwitchChange = () => {
-    let { desc } = this.props.data
+  handleSwitchChange = event => {
+    let checked = event.target.checked
 
-    if (desc) {
-      desc = false
-    } else {
-      desc = true
-    }
-    localStorage.setItem(DESC, desc)
-    this.setState({ desc: desc })
+    localStorage.setItem(DESC, checked)
+    this.setState({ desc: checked })
+    this.props.data.desc = checked
   }
 
   handleSetLimitClick = () => {

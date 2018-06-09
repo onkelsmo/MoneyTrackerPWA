@@ -6,7 +6,5 @@ before_install:
   - export PATH=$HOME/.yarn/bin:$PATH
 cache:
   yarn: true
-install:
-  - cd ./functions && yarn install && cd ..
-  - cd ./client && yarn install && cd ..
+install: true
 script: echo "script"

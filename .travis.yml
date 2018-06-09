@@ -10,3 +10,8 @@ install:
   - yarn install
 script: 
   - yarn build
+deploy:
+  skip_cleanup: true
+  provider: firebase
+  token:
+    secure: [TOKEN OBMITTED - BUT CAN BE IN REPO]

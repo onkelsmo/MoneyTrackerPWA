@@ -55,6 +55,11 @@ class Main extends React.Component {
     ]
 
     let { current, limit } = this.props.data
+
+    if (limit < current) {
+      current = limit
+    }
+
     return (
       <div className='content'>
         <table>

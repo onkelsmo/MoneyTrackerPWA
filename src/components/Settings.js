@@ -50,6 +50,10 @@ class Settings extends React.Component {
     })
   }
 
+  handleDisableClick = () => {
+    alert('comming soon')
+  }
+
   render () {
     let { limit, desc } = this.props.data
     const actions = [
@@ -64,10 +68,14 @@ class Settings extends React.Component {
               <td>Current limit: </td>
               <td className='value' onClick={this.handleOpen}>{limit}</td>
             </tr>
-            <tr>
+            <tr onClick={this.handleDisableClick}>
               <td>Asc / Desc</td>
               <td className='value'>
-                <Switch checked={desc} onChange={this.handleSwitchChange} />
+                <Switch
+                  checked={desc}
+                  onChange={this.handleSwitchChange}
+                  disabled
+                />
               </td>
             </tr>
           </tbody>

@@ -2,13 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-To setup the project,
+To setup the project:
 
 ```yarn```
 
 to install all packages
 
-```yarn starn```
+```yarn start```
 
 to start the development server
 

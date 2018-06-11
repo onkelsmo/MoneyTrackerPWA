@@ -7,7 +7,7 @@ before_install:
 cache:
   yarn: true
 install: 
-  - yarn install -g firebase-tools
+  - yarn add -g firebase-tools
   - yarn install
 script: 
   - yarn build

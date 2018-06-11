@@ -10,8 +10,5 @@ install:
   - yarn install
 script: 
   - yarn build
-deploy:
-  skip_cleanup: true
-  provider: firebase
-  token:
-    secure: "QF0JHq7zZ9O9dN9uWy4OI0Og2m5B3IwgwGnsEHv7SgjRDu6OxJqEKHEKWE8K+3uxUTZ3WxobOPpAhiWRn5ecCAuzavMaZfrMsk9sOgOvSVlDzSV3TMAzSrE77yN/G4E0x1hueGC0Mflo9H/4Aapyd5hR2MlJTEkNTZ9oIMvht6lH2JMuIJcYEpoOSq+o/K1vYU4qEA8BhPvomqbbPeAJOcjXReLDtk0iM8g66yyX5kmMNG36V8+9wp78kt8+BHNyTXEZG+1YTvqk/j/X4VN0evURyXA6lKQe/fSmn1g5R//9BWKcrtvsnp//j4Hob7RZMWR3cKMr+w+jS2X/bWRu9UCYJzb9+BYSPyxqIkCuqPcby60ClXKXEOHUM41y3x/SbRruJI4x8fV1iHkJPmh29+iXPOypjXSczOBiV/6m/3Cb+I7XdUoh76FTQJZQg8EKngByJPTJTPcbaSddqy8x/vHIg4nYxux6lfIVZgbhgjR+YixJtrBTWzztj5XHVMNJ2gf4pWKxAgu2Z9ujmHGwv3ucm6P2AZpB7Y5zEXy3VrLMkP9RZD8rhXZB4GSipxaJgSS/wBjYLBaxQD43u2+XecMK//PozhVR8JQh+WfZQaulliyIx09GAuBPjmUpJv7LzHTbYBi3bjIobB1ppzEMQStuYtJFW9FOipsMo9QyDAw="
+after_success:
+          - firebase deploy --token $FIREBASE_TOKEN --non-interactive

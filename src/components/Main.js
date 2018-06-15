@@ -66,7 +66,7 @@ class Main extends React.Component {
           <tbody>
             <tr className='current'>
               <td>Current:</td>
-              <td className='value'>{current}</td>
+              <td className='value'>{localStorage.getItem(CURRENT_VALUE)}</td>
             </tr>
             <tr className='limit'>
               <td>Limit:</td>

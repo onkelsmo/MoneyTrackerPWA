@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
-import { CURRENT_VALUE, DESC, LIMIT, MAIN_TITLE } from '../constants'
+import {
+  CURRENT_VALUE,
+  DESC,
+  LIMIT,
+  MAIN_TITLE,
+  INITIAL_CURRENT_VALUE,
+  INITIAL_LIMIT_VALUE
+} from '../constants'
 import AppShell from './AppShell'
 import Main from './Main'
 import Settings from './Settings'
@@ -9,8 +16,8 @@ import '../App.css'
 class App extends Component {
   state = {
     title: MAIN_TITLE,
-    current: 1000,
-    limit: 1000,
+    current: INITIAL_CURRENT_VALUE,
+    limit: INITIAL_LIMIT_VALUE,
     rest: 0,
     desc: true,
     openReset: false,
